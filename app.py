@@ -9,28 +9,49 @@ def index():
 @app.route("/music",methods=["GET","POST"])
 def music():
     con = sqlite3.connect("data.db")
+
+    
     if request.method=="GET":
         cur = con.cursor()
+        #selects the entire table from the db
         temp=cur.execute("SELECT * from music")
         data=temp.fetchall()
-        print(data)
+        
+        #initializing the dict to have a key:value pair in json
         music_dict={}
+        #initialising list so that we can jsonify all the songs and return that json
         music_list=[]
+
+        #travesing through all the data and making proper key value pairs
+        #from them and adding them to the final data list to be jsonified
         for row in data:
             music_dict["song"]=row[0]
             music_dict["artist"]=row[1]
             music_list.append(music_dict)
             music_dict={}
+        cur.close()
         return jsonify(music_list)
     
 
-    if request.method=="POST":
-        new_song=request.form["song"]
-        new_artist=request.form["artist"]
+
+    elif request.method=="POST":
+        new_song=request.form.get("song")
+        new_artist=request.form.get("artist")
         cur = con.cursor()
-        temp=cur.execute("INSERT INTO music(song,artist)VALUES(?,?)",(new_song,new_artist))
-        con.commit()
-        return "artist added successfully to database",200
+        #error handling
+        if not new_song or not new_artist:
+                return jsonify({"error": "Missing 'song' or 'artist'"}), 400
+        #adding the new song values into the table and commiting them so that he gets saved in the table
+        try:
+                cur.execute("INSERT INTO music (song, artist) VALUES (?, ?)", (new_song, new_artist))
+                con.commit()
+                return "Artist and song added successfully to the database", 200
+        except sqlite3.Error as e:
+                return jsonify({"error": str(e)}), 500
+        finally:
+                cur.close()
+
+
 
 if __name__=="__main__":
     app.run()
