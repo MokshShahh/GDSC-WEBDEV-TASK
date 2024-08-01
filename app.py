@@ -4,9 +4,9 @@ import sqlite3
 app=Flask(__name__)
 @app.route("/")
 def index():
-    return("hello world hi lol")
+    return("Congrats on getting my code to run. the api endpoint is set to /music so switch to that url and check out my GET and POST ENDPOINTS")
 
-@app.route("/test",methods=["GET","POST"])
+@app.route("/music",methods=["GET","POST"])
 def music():
     con = sqlite3.connect("data.db")
     if request.method=="GET":
