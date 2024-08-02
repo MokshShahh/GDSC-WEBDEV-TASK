@@ -1,13 +1,18 @@
 # GDSC-WEBDEV-TASK
 This is the backend task for gdsc
-Bonus task has been attempted
+
+Bonus task has been attempted and i have used a sqlite databse to store the names of the songs and artists
+
 Added a delete functionality also
 
 INSTALATION
 1.clone this git repo
+
 2.install packages by running pip install flask
+
 3.run this command by navigate to the project directory and running "flask run" in the terminal
-3.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
+
+4.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
 
 API END POINTS
 
