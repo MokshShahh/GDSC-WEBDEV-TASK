@@ -1,5 +1,7 @@
 # GDSC-WEBDEV-TASK
 This is the backend task for gdsc
+Bonus task has been attempted
+Added a delete functionality also
 
 INSTALATION
 1.clone this git repo
@@ -15,7 +17,7 @@ Description: Displays a welcome message and directs users to the /music endpoint
 Music Endpoint
 
 URL: /music
-Methods: GET, POST
+Methods: GET, POST, DELETE
 
 GET Request
 
@@ -30,6 +32,12 @@ POST Request
     Data Fields:
         song: Name of the song
         artist: Name of the artist
+
+DELETE Request
+    Description: Deletes a song from the database and returns and error if song does not exist in database
+
+    Data Fields:
+        song: Name of song
 
 Database
 

@@ -4,9 +4,9 @@ import sqlite3
 app=Flask(__name__)
 @app.route("/")
 def index():
-    return("Congrats on getting my code to run. the api endpoint is set to /music so switch to that url and check out my GET and POST ENDPOINTS")
+    return jsonify("Congrats on getting my code to run. the api endpoint is set to /music so switch to that url and check out my GET, POST and DELETE ENDPOINTS")
 
-@app.route("/music",methods=["GET","POST"])
+@app.route("/music",methods=["GET","POST","DELETE"])
 def music():
     con = sqlite3.connect("data.db")
 
@@ -22,7 +22,7 @@ def music():
         #initialising list so that we can jsonify all the songs and return that json
         music_list=[]
 
-        #travesing through all the data and making proper key value pairs
+        #traversing through all the data and making proper key value pairs
         #from them and adding them to the final data list to be jsonified
         for row in data:
             music_dict["song"]=row[0]
@@ -50,6 +50,27 @@ def music():
                 return jsonify({"error": str(e)}), 500
         finally:
                 cur.close()
+    
+    
+    #deleting song from database
+    elif request.method=="DELETE":
+        song=request.form.get("song")
+        if song:
+            cur=con.cursor()
+            #checks if song exists in database or not
+            cur.execute("SELECT 1 from music where song=?",(song,))
+            result=cur.fetchone()
+            if result:
+                cur.execute("DELETE FROM music where song=?",(song,))
+                con.commit()
+                return jsonify("Song deleted successfully")
+            else:
+                return jsonify("song did not exist in table")
+        else:
+            return jsonify({"error": "Missing 'song'"}), 400
+            
+
+
 
 
 
