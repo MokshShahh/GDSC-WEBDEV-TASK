@@ -53,3 +53,4 @@ DELETE Request
 Database
 
 The application uses SQLite as its database, which is stored in a file named data.db. The music table should be set up with two columns: song (TEXT) and artist (TEXT).
+There is aldredy dummy data in this table so you can start testing the api right away and you do not need to insert any data into the table
