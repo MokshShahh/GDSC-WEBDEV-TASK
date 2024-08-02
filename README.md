@@ -10,6 +10,7 @@ INSTALATION
 3.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
 
 API END POINTS
+
 URL: /
 
 Method: GET
@@ -19,6 +20,7 @@ Description: Displays a welcome message and directs users to the /music endpoint
 Music Endpoint
 
 URL: /music
+
 Methods: GET, POST, DELETE
 
 GET Request
