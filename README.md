@@ -6,13 +6,14 @@ Bonus task has been attempted and i have used a sqlite databse to store the name
 Added a delete functionality also
 
 INSTALATION
-1.clone this git repo
 
-2.install packages by running pip install flask
+    1.clone this git repo
 
-3.run this command by navigate to the project directory and running "flask run" in the terminal
+    2.install packages by running pip install flask
 
-4.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
+    3.run this command by navigate to the project directory and running "flask run" in the terminal
+
+    4.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
 
 API END POINTS
 
