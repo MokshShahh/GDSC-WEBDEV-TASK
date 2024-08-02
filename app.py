@@ -63,9 +63,9 @@ def music():
             if result:
                 cur.execute("DELETE FROM music where song=?",(song,))
                 con.commit()
-                return jsonify("Song deleted successfully")
+                return jsonify("Song deleted successfully",200)
             else:
-                return jsonify("song did not exist in table")
+                return jsonify("Song did not exist in table",200)
         else:
             return jsonify({"error": "Missing 'song'"}), 400
             
