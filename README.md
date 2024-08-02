@@ -11,7 +11,9 @@ INSTALATION
 
 API END POINTS
 URL: /
+
 Method: GET
+
 Description: Displays a welcome message and directs users to the /music endpoint.
 
 Music Endpoint
