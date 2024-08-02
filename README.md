@@ -3,7 +3,7 @@ This is the backend task for gdsc
 
 Bonus task has been attempted and i have used a sqlite databse to store the names of the songs and artists
 
-Added a delete functionality also
+Added a delete method that deletes songs from the database
 
 INSTALATION
 
