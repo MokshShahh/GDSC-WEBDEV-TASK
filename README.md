@@ -11,9 +11,9 @@ INSTALATION
 
     2.install packages by running pip install flask
 
-    3.run this command by navigate to the project directory and running "flask run" in the terminal
+    3.navigate to the project directory and running "flask run" in the terminal
 
-    4.test this code using API platforms like POSTMAN and copying the localhost url that "flask  run" gives you
+    4.test this code using API platforms like POSTMAN and copying the localhost url that "flask run" gives you
 
 API END POINTS
 
