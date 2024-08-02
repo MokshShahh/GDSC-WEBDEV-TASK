@@ -34,6 +34,7 @@ POST Request
         artist: Name of the artist
 
 DELETE Request
+
     Description: Deletes a song from the database and returns and error if song does not exist in database
 
     Data Fields:
